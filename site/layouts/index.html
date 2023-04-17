@@ -1,5 +1,11 @@
 {{ define "main" }}
 
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script type="text/javascript">
+    if (window.location.hash.includes('_token=')) {
+      window.location.replace('/admin/' + window.location.hash)
+    }
+</script>
 {{ partial "jumbotron" (dict "imageUrl" .Params.image "title" .Title "subtitle" .Params.subtitle) }}
 
 {{ partial "short-text" .Params.blurb}}
